@@ -1,7 +1,8 @@
+require('dotenv').config()
 const fetch = require('node-fetch');
 const id = '829588310158213150';
 const guild = '806550877439131660';
-const token = 'ODI5NTg4MzEwMTU4MjEzMTUw.YG6UUg.-7PGTcPMJR1jHwtS6eIjZQQLXVs';
+const token = process.env.TOKEN;
 
 const uri = `https://discord.com/api/v8/applications/${id}/guilds/${guild}/commands`;
 
