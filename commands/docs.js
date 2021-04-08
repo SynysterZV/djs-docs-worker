@@ -7,33 +7,14 @@ const token = process.env.TOKEN;
 const uri = `https://discord.com/api/v8/applications/${id}/guilds/${guild}/commands`;
 
 const data = {
-    name: 'docs',
-    description: 'Search DJS Docs',
+    name: 'mdn',
+    description: 'Search MDN Docs',
     options: [
         {
             type: 3,
             name: 'query',
-            description: 'Class or Class#method combination to search for',
+            description: 'Search term',
             required: true
-        },
-        {
-            type: 3,
-            name: 'source',
-            description: "Source repository to use",
-            choices: [
-                {
-                    name: 'collection (util structure)',
-                    value: 'collection',
-                },
-                {
-                    name: 'development branch (#master)',
-                    value: 'master',
-                },
-                {
-                    name: "stable branch (#stable) (default)",
-                    value: "stable",
-                }
-            ]
         }
     ]
 };

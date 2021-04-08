@@ -9,7 +9,8 @@
     "dev": "set NODE_ENV=development && npm run build && npm run cloudworker",
     "cloudworker": "set NODE_ENV=development && cloudworker ./dist/worker.development.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write '**/*.{js,css,json,md}'"
+    "format": "prettier --write '**/*.{js,css,json,md}'",
+    "transpile": "tsc --project ./"
   },
   "author": "SynysterZV <greendayfanj@gmail.com>",
   "license": "MIT",

@@ -1,7 +1,8 @@
 import { djsDocs } from './interactions/discordjsDocs'
+import { MDN } from './interactions/mdn'
 import { verifyKey } from 'discord-interactions'
 
-let dev
+let dev = true
 
 export default async function (request: Request) {
   try {
@@ -10,7 +11,7 @@ export default async function (request: Request) {
       if(!await isValidReq(request)) return new Response('Bad request signature', { status: 401 })
     }
 
-    const body = dev ? { data: { name: 'ping', options: [] }, type: 2, id: '744603004493365330' } : await request.clone().json();
+    const body = dev ? { data: { name: 'mdn', options: [ { name: 'query', value: 'string' }] }, type: 2, id: '744603004493365330' } : await request.clone().json();
     const { data: { name, options } } = body
 
     if (body.type === 2) {
@@ -21,6 +22,9 @@ export default async function (request: Request) {
           return djsDocs(args.source || 'stable', args.query);
         }
         
+        if (name === 'mdn') {
+            return MDN(args.query)
+          }
       }
 
       if (name === 'ping') {
